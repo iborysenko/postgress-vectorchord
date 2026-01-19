@@ -8,10 +8,4 @@ USER root
 COPY --from=vchord_scratch /usr/lib/postgresql/*/lib/vectors.so /opt/bitnami/postgresql/lib/
 COPY --from=vchord_scratch /usr/share/postgresql/*/extension/vectors* /opt/bitnami/postgresql/share/extension/
 
-# Встановлюємо pgvector
-RUN apt-get update && \
-    apt-get install -y postgresql-contrib && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 USER 1001
